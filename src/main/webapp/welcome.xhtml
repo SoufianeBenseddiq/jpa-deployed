@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<ui:composition template="layout/layout.xhtml">
+
+    <ui:define name="title">ENSA JSF — Home</ui:define>
+
+    <ui:define name="content">
+
+        <section class="welcome-hero">
+            <h1>Student Portal</h1>
+            <p>A collection of JSF mini-applications for learning and practice.</p>
+        </section>
+
+        <h:form styleClass="nav-grid">
+
+            <h:commandLink action="students-management" styleClass="nav-card">
+                <div class="nav-card-title">Students</div>
+                <div class="nav-card-desc">Manage the student list</div>
+            </h:commandLink>
+
+            <h:commandLink action="jeu-devinette" styleClass="nav-card">
+                <div class="nav-card-title">Devinette</div>
+                <div class="nav-card-desc">Number guessing game</div>
+            </h:commandLink>
+
+            <h:commandLink action="calculator" styleClass="nav-card">
+                <div class="nav-card-title">Calculator</div>
+                <div class="nav-card-desc">Add two numbers</div>
+            </h:commandLink>
+
+            <h:commandLink action="#{helloBean.randomRedirect}" styleClass="nav-card">
+                <div class="nav-card-title">Pile ou Face</div>
+                <div class="nav-card-desc">Click me to try your luck</div>
+            </h:commandLink>
+
+            <h:inputText value="#{helloBean.message}" style="display:none" />
+            <h:commandButton value="Welcome Me" action="welcome" style="display:none" />
+
+        </h:form>
+
+    </ui:define>
+
+</ui:composition>
+</html>

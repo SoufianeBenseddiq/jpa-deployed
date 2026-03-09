@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title><ui:insert name="title">ENSA JSF <!--(ENSA JSF is thedefault title)--></ui:insert></title>
+    <link rel="stylesheet" type="text/css" href="#{request.contextPath}/layout/styles.css" />
+    <!-- Per-page extra styles slot -->
+    <ui:insert name="styles" />
+</h:head>
+
+<h:body>
+    <div class="page-wrapper">
+
+        <!-- ── Header ── -->
+        <header class="site-header">
+            <div class="logo">ENSA <span>JSF</span></div>
+            <nav>
+                <ul class="nav-links">
+                    <li><h:link value="Home"     outcome="welcome"             /></li>
+                    <li><h:link value="Students" outcome="students-management" /></li>
+                    <li><h:link value="Devinette" outcome="jeu-devinette"      /></li>
+                    <li><h:link value="Calculator" outcome="calculator"        /></li>
+                </ul>
+            </nav>
+        </header>
+
+        <!-- ── Page content slot ── -->
+        <ui:insert name="content">
+            <!-- default empty -->
+        </ui:insert>
+
+    </div>
+</h:body>
+</html>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<ui:composition template="layout/layout.xhtml">
+
+    <ui:define name="title">ENSA JSF — Devinette</ui:define>
+
+    <ui:define name="styles">
+        <style type="text/css">
+            .game-card { max-width: 480px; margin: 0 auto; text-align: center; }
+            .game-card::before { display: none; }
+            .game-title { font-family: var(--serif); font-size: 3rem; line-height: 1; margin-bottom: 0.5rem; }
+            .game-subtitle { font-family: var(--mono); font-size: 0.8rem; text-transform: uppercase;
+                letter-spacing: 0.12em; color: var(--ink-soft); margin-bottom: 2.5rem; }
+            .guess-input { text-align: center; font-size: 2rem !important;
+                font-family: var(--serif) !important; letter-spacing: 0.1em; padding: 0.8rem !important; }
+            .submit-btn { margin-top: 1.5rem; width: 100%; padding: 0.8rem !important; }
+            .reset-btn  { margin-top: 0.75rem; width: 100%;
+                background: transparent !important; color: var(--ink-soft) !important;
+                border-color: var(--border) !important; }
+            .feedback-msg { font-family: var(--serif); font-style: italic;
+                font-size: 1.3rem; color: var(--accent); min-height: 2rem; margin-top: 1.5rem; }
+            .target-debug { font-family: var(--mono); font-size: 0.72rem; color: var(--border); margin-top: 2rem; }
+        </style>
+    </ui:define>
+
+    <ui:define name="content">
+
+        <div class="card game-card">
+            <div class="game-title">Devinez!</div>
+            <div class="game-subtitle">Guess the secret number</div>
+
+            <h:form>
+                <div class="chances-badge">
+                    Remaining attempts: <strong>#{devinetteBean.chances}</strong>
+                </div>
+
+                <h:inputText id="inputNumber" value="#{devinetteBean.inputNumber}"
+                             required="true" requiredMessage="Please enter a number."
+                             placeholder="_ _ _"
+                             disabled="#{devinetteBean.disabledInput}"
+                             styleClass="guess-input" />
+                <h:message for="inputNumber" styleClass="msg-error mt-1" />
+
+                <h:commandButton value="Submit Guess" action="#{devinetteBean.submit()}"
+                                 disabled="#{devinetteBean.disabledInput}"
+                                 styleClass="btn submit-btn" />
+
+                <div class="feedback-msg">
+                    <h:outputText value="#{devinetteBean.message}" />
+                </div>
+
+                <h:commandButton value="New Game" action="#{devinetteBean.reset()}"
+                                 styleClass="btn reset-btn" />
+
+                <div class="target-debug">
+                    <h:outputText value="[dev] target: #{devinetteBean.target}" />
+                </div>
+            </h:form>
+        </div>
+
+    </ui:define>
+
+</ui:composition>
+</html>

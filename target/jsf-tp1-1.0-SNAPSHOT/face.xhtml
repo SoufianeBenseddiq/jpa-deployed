@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<ui:composition template="layout/layout.xhtml">
+
+    <ui:define name="title">ENSA JSF — Face</ui:define>
+
+    <ui:define name="styles">
+        <style type="text/css">
+            .coin-card { max-width: 360px; margin: 0 auto; text-align: center; }
+            .coin-card::before { display: none; }
+            .coin-face { font-size: 5rem; margin: 1.5rem 0 0.5rem;
+                animation: flipIn 0.6s ease both; }
+            .coin-label { font-family: var(--mono); font-size: 0.75rem;
+                text-transform: uppercase; letter-spacing: 0.14em; color: var(--gold); }
+            .coin-result { font-family: var(--serif); font-size: 2rem;
+                color: var(--accent); margin-top: 0.5rem; }
+            @keyframes flipIn {
+                from { opacity: 0; transform: rotateY(90deg) scale(0.8); }
+                to   { opacity: 1; transform: rotateY(0deg) scale(1); }
+            }
+        </style>
+    </ui:define>
+
+    <ui:define name="content">
+        <div class="card coin-card">
+            <div class="coin-face">🪙</div>
+            <div class="coin-label">Result</div>
+            <div class="coin-result">FACE</div>
+        </div>
+    </ui:define>
+
+</ui:composition>
+</html>

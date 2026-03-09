@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<ui:composition template="layout/layout.xhtml">
+
+    <ui:define name="title">ENSA JSF — Calculator</ui:define>
+
+    <ui:define name="styles">
+        <style type="text/css">
+            .calc-card { max-width: 420px; }
+            .operator-symbol {
+                display: flex; align-items: center; justify-content: center;
+                font-family: var(--serif); font-size: 2.5rem;
+                color: var(--accent); padding-top: 1.5rem;
+            }
+            .calc-fields {
+                display: grid;
+                grid-template-columns: 1fr 40px 1fr;
+                gap: 0.75rem; align-items: end;
+            }
+            .calc-action { margin-top: 1.5rem; }
+            .calc-action input { width: 100%; }
+        </style>
+    </ui:define>
+
+    <ui:define name="content">
+
+        <h2>Calculator</h2>
+
+        <div class="card calc-card">
+            <h3>Addition</h3>
+
+            <h:form>
+                <div class="calc-fields">
+                    <div>
+                        <label for="num1">Number A</label>
+                        <h:inputText id="num1" value="#{calculator.num1}" />
+                    </div>
+                    <div class="operator-symbol">+</div>
+                    <div>
+                        <label for="num2">Number B</label>
+                        <h:inputText id="num2" value="#{calculator.num2}" />
+                    </div>
+                </div>
+                <div class="calc-action">
+                    <h:commandButton value="Calculate" action="#{calculator.addNumber()}" styleClass="btn" />
+                </div>
+            </h:form>
+
+            <h:panelGroup rendered="#{not empty calculator.sum}">
+                <div class="result-box mt-3">
+                    <div class="result-label">Result</div>
+                    <div class="result-value">
+                        <h:outputText value="#{calculator.sum}" />
+                    </div>
+                </div>
+            </h:panelGroup>
+        </div>
+
+    </ui:define>
+
+</ui:composition>
+</html>
