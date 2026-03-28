@@ -6,22 +6,27 @@
 
     <managed-bean>
         <managed-bean-name>helloBean</managed-bean-name>
-        <managed-bean-class>ma.ensa.jsftp1.controller.HelloBean</managed-bean-class>
+        <managed-bean-class>ma.ensa.jsftp1.beans.HelloBean</managed-bean-class>
         <managed-bean-scope>application</managed-bean-scope>
     </managed-bean>
     <managed-bean>
         <managed-bean-name>devinetteBean</managed-bean-name>
-        <managed-bean-class>ma.ensa.jsftp1.controller.DevinetteBean</managed-bean-class>
+        <managed-bean-class>ma.ensa.jsftp1.beans.DevinetteBean</managed-bean-class>
         <managed-bean-scope>application</managed-bean-scope>
     </managed-bean>
     <managed-bean>
         <managed-bean-name>studentBean</managed-bean-name>
-        <managed-bean-class>ma.ensa.jsftp1.controller.StudentBean</managed-bean-class>
-        <managed-bean-scope>view</managed-bean-scope>
+        <managed-bean-class>ma.ensa.jsftp1.beans.StudentBean</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
     </managed-bean>
     <managed-bean>
         <managed-bean-name>calculator</managed-bean-name>
-        <managed-bean-class>ma.ensa.jsftp1.controller.CalculatorBean</managed-bean-class>
+        <managed-bean-class>ma.ensa.jsftp1.beans.CalculatorBean</managed-bean-class>
         <managed-bean-scope>application</managed-bean-scope>
     </managed-bean>
+
+    <validator>
+        <validator-id>studentNameValidator</validator-id>
+        <validator-class>ma.ensa.jsftp1.validator.NameValidator</validator-class>
+    </validator>
 </faces-config>

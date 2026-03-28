@@ -1,5 +1,12 @@
-C:\Users\soufi\Documents\ENSA-GI-1ST\S4\JEE\Control-1\tps\jsf-tp1\src\main\java\ma\ensa\jsftp1\model\Student.java
-C:\Users\soufi\Documents\ENSA-GI-1ST\S4\JEE\Control-1\tps\jsf-tp1\src\main\java\ma\ensa\jsftp1\controller\HelloBean.java
-C:\Users\soufi\Documents\ENSA-GI-1ST\S4\JEE\Control-1\tps\jsf-tp1\src\main\java\ma\ensa\jsftp1\controller\CalculatorBean.java
-C:\Users\soufi\Documents\ENSA-GI-1ST\S4\JEE\Control-1\tps\jsf-tp1\src\main\java\ma\ensa\jsftp1\controller\StudentBean.java
-C:\Users\soufi\Documents\ENSA-GI-1ST\S4\JEE\Control-1\tps\jsf-tp1\src\main\java\ma\ensa\jsftp1\controller\DevinetteBean.java
+C:\Users\soufi\Documents\ENSA-GI-1ST\S4\JEE\Control-1\tps\jpa\students-datatable-2\src\main\java\ma\ensa\jsftp1\dao\DatabasePersistence.java
+C:\Users\soufi\Documents\ENSA-GI-1ST\S4\JEE\Control-1\tps\jpa\students-datatable-2\src\main\java\ma\ensa\jsftp1\service\StudentService.java
+C:\Users\soufi\Documents\ENSA-GI-1ST\S4\JEE\Control-1\tps\jpa\students-datatable-2\src\main\java\ma\ensa\jsftp1\entity\Student.java
+C:\Users\soufi\Documents\ENSA-GI-1ST\S4\JEE\Control-1\tps\jpa\students-datatable-2\src\main\java\ma\ensa\jsftp1\validator\NameValidator.java
+C:\Users\soufi\Documents\ENSA-GI-1ST\S4\JEE\Control-1\tps\jpa\students-datatable-2\src\main\java\ma\ensa\jsftp1\controller\CalculatorBean.java
+C:\Users\soufi\Documents\ENSA-GI-1ST\S4\JEE\Control-1\tps\jpa\students-datatable-2\src\main\java\ma\ensa\jsftp1\controller\DevinetteBean.java
+C:\Users\soufi\Documents\ENSA-GI-1ST\S4\JEE\Control-1\tps\jpa\students-datatable-2\src\main\java\ma\ensa\jsftp1\controller\StudentBean.java
+C:\Users\soufi\Documents\ENSA-GI-1ST\S4\JEE\Control-1\tps\jpa\students-datatable-2\src\main\java\ma\ensa\jsftp1\util\enums\CountryRate.java
+C:\Users\soufi\Documents\ENSA-GI-1ST\S4\JEE\Control-1\tps\jpa\students-datatable-2\src\main\java\ma\ensa\jsftp1\controller\HelloBean.java
+C:\Users\soufi\Documents\ENSA-GI-1ST\S4\JEE\Control-1\tps\jpa\students-datatable-2\src\main\java\ma\ensa\jsftp1\entity\Address.java
+C:\Users\soufi\Documents\ENSA-GI-1ST\S4\JEE\Control-1\tps\jpa\students-datatable-2\src\main\java\ma\ensa\jsftp1\dao\StudentDao.java
+C:\Users\soufi\Documents\ENSA-GI-1ST\S4\JEE\Control-1\tps\jpa\students-datatable-2\src\main\java\ma\ensa\jsftp1\converter\BourseConverter.java

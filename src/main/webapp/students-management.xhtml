@@ -4,7 +4,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
 
 <ui:composition template="layout/layout.xhtml">
 
@@ -35,13 +36,25 @@
                 <h3>Add New Student</h3>
 
                 <label for="name">Full Name</label>
-                <h:inputText id="name" value="#{studentBean.addStudent.name}" />
+                <h:inputText id="name" value="#{studentBean.addStudent.name}" >
+                    <f:validator validatorId="studentNameValidator" />
+                </h:inputText>
+                <h:message for="name" errorStyle="color: red" showSummary="true" showDetail="true" />
 
                 <label for="email">Email Address</label>
-                <h:inputText id="email" value="#{studentBean.addStudent.email}" />
+                <h:inputText id="email" required="true" value="#{studentBean.addStudent.email}" validatorMessage="Email standard format not respected" >
+                    <f:validateRegex pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" />
+                </h:inputText>
+                <h:message for="email" showSummary="true" errorStyle="color: red"/>
+
+                <label for="bourse">Bourse</label>
+                <h:inputText id="bourse" value="#{studentBean.addStudent.bourse}" >
+                    <f:converter for="bourse" converterId="bourseConverter" />
+                </h:inputText>
+                <h:message for="bourse" showSummary="true" />
 
                 <label for="birthday">Date of Birth (yyyy-MM-dd)</label>
-                <h:inputText id="birthday" value="#{studentBean.addStudent.birthday}">
+                <h:inputText id="birthday" value="#{studentBean.addStudent.birthday}" pt:type="date">
                     <f:convertDateTime type="localDate" pattern="yyyy-MM-dd" />
                 </h:inputText>
 
@@ -49,9 +62,9 @@
                     <h:commandButton value="Add Student" action="#{studentBean.addStudent()}" styleClass="btn" />
                 </div>
             </div>
-
-            <hr />
-
+        </h:form>
+        <hr />
+        <h:form>
             <!-- Empty state -->
             <h:outputText value="No students enrolled yet." styleClass="message-empty"
                           rendered="#{empty studentBean.studentList}" />
@@ -80,25 +93,38 @@
 
                     <h:column styleClass="table-input">
                         <f:facet name="header">Email</f:facet>
-                        <h:outputText value="#{student.email}"
+                        <h:outputText id="updateEmailOutput" value="#{student.email}"
                                       rendered="#{studentBean.updatedStudent == null or student.id != studentBean.updatedStudent.id}" />
-                        <h:inputText value="#{studentBean.updatedStudent.email}"
+                        <h:inputText id="updateEmailInput" value="#{studentBean.updatedStudent.email}"
                                      rendered="#{studentBean.updatedStudent != null and student.id == studentBean.updatedStudent.id}" />
                     </h:column>
 
                     <h:column styleClass="table-input">
                         <f:facet name="header">Birthday</f:facet>
-                        <h:outputText value="#{student.birthday}"
+                        <h:outputText id="updateBirthdayOutput" value="#{student.birthday}"
                                       rendered="#{studentBean.updatedStudent == null or student.id != studentBean.updatedStudent.id}" />
-                        <h:inputText value="#{studentBean.updatedStudent.birthday}"
+                        <h:inputText id="updateBirthdayInput" value="#{studentBean.updatedStudent.birthday}"
                                      rendered="#{studentBean.updatedStudent != null and student.id == studentBean.updatedStudent.id}">
                             <f:convertDateTime type="localDate" pattern="yyyy-MM-dd" />
                         </h:inputText>
                     </h:column>
 
+                    <h:column styleClass="table-input">
+                        <f:facet name="header">Bourse</f:facet>
+                        <h:outputText value="#{student.bourse}" id="updateBourseOutput"
+                                      rendered="#{studentBean.updatedStudent == null or student.id != studentBean.updatedStudent.id}" >
+                            <f:converter for="updateBourseOutput" converterId="bourseConverter" />
+                        </h:outputText>
+                        <h:inputText id="updateBourseInput" value="#{studentBean.updatedStudent.bourse}"
+                                     rendered="#{studentBean.updatedStudent != null and student.id == studentBean.updatedStudent.id}">
+                            <f:converter for="updateBourseInput" converterId="bourseConverter"  />
+<!--                            <f:converter for="bourse" converterId="bourseConverter" />-->
+                        </h:inputText>
+                    </h:column>
+
                     <h:column styleClass="action-cell">
                         <f:facet name="header">Actions</f:facet>
-                        <h:commandButton value="Delete" action="#{studentBean.delete(student.id)}"
+                        <h:commandButton value="Delete" action="#{studentBean.delete(student)}"
                                          styleClass="btn btn-delete" />
                         <h:commandButton value="Edit"
                                          action="#{studentBean.setUpdatedStudent(student)}"
@@ -111,6 +137,17 @@
                     </h:column>
 
                 </h:dataTable>
+            </h:panelGroup>
+        </h:form>
+        <h:form>
+            <h:panelGroup >
+                <h:outputText value="pages : " />
+                <ui:repeat value="#{studentBean.pages}" var="page" >
+                    <h:commandLink value="#{page}"
+                                   action="#{studentBean.findPaginated(page)}"
+                    />
+                    <h:outputText value=" | "/>
+                </ui:repeat>
             </h:panelGroup>
 
         </h:form>
